@@ -18,11 +18,6 @@ public class AppConfig {
     @Autowired
     Environment environment;
 
- /*   private final String URL = "jdbc:mysql://localhost:3306/bank?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private final String USER = "root";
-    private final String DRIVER = "driver";
-    private final String PASSWORD = "12345";*/
-
     private final String URL = "url";
     private final String USER = "dbuser";
     private final String DRIVER = "driver";
