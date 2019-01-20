@@ -5,16 +5,33 @@
 
     <display-name>Spring MVC Application</display-name>
 
+    <!-- For web context -->
     <servlet>
-        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-name>death-walley-dispatcher</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/spring-mvc-config.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>DispatcherServlet</servlet-name>
-        <url-pattern>/DispatcherServlet</url-pattern>
+        <servlet-name>death-walley-dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- For root context -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>WEB-INF/spring-core-context.xml</param-value>
+    </context-param>
 </web-app>
