@@ -2,6 +2,7 @@ package incubator.course.dead.valley.application.spring.dao;
 
 import incubator.course.dead.valley.application.model.User;
 import incubator.course.dead.valley.application.model.UserMapper;
+import incubator.course.dead.valley.application.spring.config.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -21,8 +22,8 @@ public class UserDAOImpl implements UserDAO{
    // private final String SQL_INSERT_PERSON = "insert into people(id, first_name, last_name, age) values(?,?,?,?)";
 
     @Autowired
-    public UserDAOImpl(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
+    public UserDAOImpl(AppConfig config) {
+        jdbcTemplate = new JdbcTemplate(config.dataSource());
     }
 
     public List<User> getAllUsers() {

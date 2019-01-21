@@ -7,31 +7,56 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import java.util.Objects;
 
 @Configuration
 @ComponentScan("incubator.course.dead.valley.application")
 @PropertySource("classpath:database.properties")
 public class AppConfig {
+    private String url;
+    private String user;
+    private String driver;
+    private String password;
 
-    @Autowired
-    Environment environment;
+    public String getUrl() {
+        return url;
+    }
 
-    private final String URL = "url";
-    private final String USER = "dbuser";
-    private final String DRIVER = "driver";
-    private final String PASSWORD = "dbpassword";
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Bean
-    DataSource dataSource() {
+    public DataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setUrl(environment.getProperty(URL));
-        driverManagerDataSource.setUsername(environment.getProperty(USER));
-        driverManagerDataSource.setPassword(environment.getProperty(PASSWORD));
-        driverManagerDataSource.setDriverClassName(Objects.requireNonNull(environment.getProperty(DRIVER)));
+        driverManagerDataSource.setUrl(this.url);
+        driverManagerDataSource.setUsername(this.user);
+        driverManagerDataSource.setPassword(this.password);
+        driverManagerDataSource.setDriverClassName(this.driver);
         return driverManagerDataSource;
     }
 }
