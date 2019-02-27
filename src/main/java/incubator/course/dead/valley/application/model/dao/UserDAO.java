@@ -1,5 +1,5 @@
-package incubator.course.dead.valley.application.spring.dao;
-import incubator.course.dead.valley.application.model.User;
+package incubator.course.dead.valley.application.model.dao;
+import incubator.course.dead.valley.application.model.entity.User;
 import java.util.List;
 
 public interface UserDAO {

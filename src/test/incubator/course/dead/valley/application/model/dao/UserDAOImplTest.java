@@ -1,7 +1,7 @@
-package incubator.course.dead.valley.application.spring.dao;
+package incubator.course.dead.valley.application.model.dao;
 
 
-import incubator.course.dead.valley.application.model.User;
+import incubator.course.dead.valley.application.model.entity.User;
 import incubator.course.dead.valley.application.spring.config.AppConfig;
 import org.junit.Assert;
 import org.junit.Test;

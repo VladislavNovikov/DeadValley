@@ -1,5 +1,6 @@
-package incubator.course.dead.valley.application.model;
+package incubator.course.dead.valley.application.model.mapper;
 
+import incubator.course.dead.valley.application.model.entity.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

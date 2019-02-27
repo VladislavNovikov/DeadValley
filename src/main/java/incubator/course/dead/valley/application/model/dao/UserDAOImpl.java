@@ -1,13 +1,12 @@
-package incubator.course.dead.valley.application.spring.dao;
+package incubator.course.dead.valley.application.model.dao;
 
-import incubator.course.dead.valley.application.model.User;
-import incubator.course.dead.valley.application.model.UserMapper;
+import incubator.course.dead.valley.application.model.entity.User;
+import incubator.course.dead.valley.application.model.mapper.UserMapper;
 import incubator.course.dead.valley.application.spring.config.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
 import java.util.List;
 
 @Component

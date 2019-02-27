@@ -1,4 +1,4 @@
-package incubator.course.dead.valley.application.model;
+package incubator.course.dead.valley.application.model.entity;
 
 public class User {
     private String name;

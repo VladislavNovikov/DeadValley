@@ -1,6 +1,7 @@
-package incubator.course.dead.valley.application.spring.controller;
+package incubator.course.dead.valley.application.controller;
 
-import incubator.course.dead.valley.application.spring.services.UserService;
+import incubator.course.dead.valley.application.model.entity.User;
+import incubator.course.dead.valley.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Collections;
+import java.util.Comparator;
 
 @Controller
 @RequestMapping("/ShowStartPage")
@@ -28,7 +30,7 @@ public class UserController {
     @RequestMapping(value = "/TheMostRichest",method = RequestMethod.GET)
     public String theMostRichest(ModelMap model) {
         model.addAttribute("theMostRichest", Collections.max(service.getAllUser(),
-                (o1,o2) -> o1.getAccount() - o2.getAccount()));
+                Comparator.comparingInt(User::getAccount)));
         return "ShowUser";
     }
 
